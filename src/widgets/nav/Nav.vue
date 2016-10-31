@@ -14,10 +14,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li v-bind:class="{'active': active}"><a v-link="{path: '/index'}" v-on:click="onclick"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
             <li><a href="tables.html"><i class="fa fa-table"></i> Tables</a></li>
-            <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
+            <li><a v-link="{path: '/forms'}"><i class="fa fa-edit"></i> Forms</a></li>
             <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
             <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li>
@@ -95,3 +95,24 @@
     </div><!-- /.navbar-collapse -->
     </nav>
 </template>
+
+<script>
+
+    // Model
+    var navActive = {
+        'active': true
+    }
+
+
+    export default {
+        data() {
+            return navActive;
+        },
+        methods: {
+            onclick: function () {
+                console.log(111)
+                this.active = false
+            }
+        }
+    }
+</script>
